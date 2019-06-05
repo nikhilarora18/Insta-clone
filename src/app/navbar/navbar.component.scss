@@ -1,0 +1,22 @@
+.navbar{
+  padding: 10px 20%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+
+  span{
+    cursor: pointer;
+  }
+
+  .actions{
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+
+    mat-icon{
+      cursor: pointer;
+    }
+
+  }
+}

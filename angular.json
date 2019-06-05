@@ -132,5 +132,10 @@
       }
     }
   },
-  "defaultProject": "instagram-clone"
+  "defaultProject": "instagram-clone",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
