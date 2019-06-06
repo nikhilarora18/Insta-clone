@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './modules/auth/login/login.component';
+import {UserDashboardComponent} from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   {
-    path: '', component: LoginComponent
-  }
+    path: 'dashboard', component: UserDashboardComponent
+  },
 ];
 
 @NgModule({
@@ -14,4 +14,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class DashboardRoutingModule {
+}

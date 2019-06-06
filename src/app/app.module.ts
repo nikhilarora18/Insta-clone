@@ -1,50 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import {RouterModule} from '@angular/router';
-import {AppRoutingModule} from './app.routing.module';
+import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatDividerModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatToolbarModule
-} from '@angular/material';
-import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PostComponent } from './post/post.component';
-import { PostHeaderComponent } from './post/post-header/post-header.component';
+import {AppRoutingModule} from './app.routing.module';
+import {BrowserModule} from '@angular/platform-browser';
+import {AuthModule} from './modules/auth/auth.module';
+import {DashboardModule} from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    UserDashboardComponent,
-    HomeComponent,
-    SignupComponent,
-    NavbarComponent,
-    PostComponent,
-    PostHeaderComponent
   ],
   imports: [
-    BrowserModule,
-    RouterModule,
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDividerModule
+    AuthModule,
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
