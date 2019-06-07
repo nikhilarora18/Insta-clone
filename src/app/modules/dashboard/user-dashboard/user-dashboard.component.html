@@ -1,3 +1,4 @@
 <app-navbar></app-navbar>
-<app-post user="test_user_1" image="https://wallpapercave.com/wp/K2VOGDj.jpg"></app-post>
-<app-post user="test_user_2" image="https://wallpapercave.com/wp/6lvp4zT.jpg"></app-post>
+<div *ngFor="let post of posts">
+<app-post [post]="post"></app-post>
+</div>

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Post} from '../../../models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -7,8 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  @Input() user = '';
-  @Input() image = '';
+  @Input() post: Post;
 
   ngOnInit() {
   }
