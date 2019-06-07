@@ -1,6 +1,7 @@
+<div class="form">
 <div class="login-form">
   <h1 class="mat-title title">Instagram</h1>
-  <div class="example-container">
+  <div class="container">
     <mat-form-field>
       <input matInput type="username" placeholder="Phone number, username, or email">
     </mat-form-field>
@@ -9,5 +10,9 @@
       <input matInput type="password" placeholder="Password">
     </mat-form-field>
     <button mat-flat-button color="primary" (click)="login()">LOGIN</button>
+  </div>
+</div>
+  <div class="signup-redirect">
+    <p>New User ? <a routerLink="/signup">Signup</a></p>
   </div>
 </div>

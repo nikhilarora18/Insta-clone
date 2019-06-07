@@ -1,3 +1,23 @@
-<p>
-  signup works!
-</p>
+<div class="form">
+  <div class="signup-form">
+    <h1 class="mat-title title">Instagram</h1>
+    <div class="container">
+      <mat-form-field>
+        <input matInput type="username" placeholder="Mobile number or email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="name" placeholder="Full Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="username" placeholder="Username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password">
+      </mat-form-field>
+      <button mat-flat-button color="primary" (click)="signup()">SIGNUP</button>
+    </div>
+  </div>
+  <div class="login-redirect">
+    <p>Already a user ? <a routerLink="/login">Log In</a></p>
+  </div>
+</div>

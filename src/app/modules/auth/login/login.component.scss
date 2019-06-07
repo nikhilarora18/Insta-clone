@@ -1,21 +1,33 @@
-.login-form {
-  width: 500px;
-  border: 1px solid #e6e6e6;
-  padding: 50px;
+.form{
   position: absolute;
   left: 30%;
-  top: 30%;
+  top: 20%;
 
-  .example-container {
-    display: flex;
-    flex-direction: column;
+  .login-form {
+    width: 500px;
+    border: 1px solid #e6e6e6;
+    padding: 50px;
+    margin-bottom: 30px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      text-align: center;
+      padding-bottom: 30px;
+    }
   }
 
-  .title {
+  .signup-redirect{
+    width: 500px;
+    border: 1px solid #e6e6e6;
+    padding: 50px;
     text-align: center;
-    padding-bottom: 30px;
   }
 }
+
 
 
 

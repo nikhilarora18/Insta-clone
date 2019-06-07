@@ -1,0 +1,36 @@
+.form{
+  position: absolute;
+  top: 20%;
+  left: 30%;
+
+  .signup-form {
+    width: 500px;
+    border: 1px solid #e6e6e6;
+    padding: 50px;
+    margin-bottom: 30px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      text-align: center;
+      padding-bottom: 30px;
+    }
+  }
+
+  .login-redirect{
+    width: 500px;
+    border: 1px solid #e6e6e6;
+    padding: 50px;
+    text-align: center;
+  }
+
+}
+
+
+
+
+
+

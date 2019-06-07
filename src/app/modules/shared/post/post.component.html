@@ -1,11 +1,21 @@
-<div class="post-container">
-  <app-post-header [user]="user"></app-post-header>
-  <img [src]="image" alt="Couldn't load. Check your connection">
-  <div class="post-actions">
-    <div>
-      <mat-icon>favorite_border</mat-icon>
-      <mat-icon>chat_bubble_outline</mat-icon>
-    </div>
-    <mat-icon>bookmark_border</mat-icon>
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar
+         src="https://fsa.zobj.net/crop.php?r=YMiaoE1yDbt_EXzmm9Mhop-dKmD9vUppXqAfkkVA-D8XFF0Ec5FXA9FOK3BT9lv03SkhMJLTpp5iTi5VQo5xIjzO6kCDSjSDXIiHVrDWAyGe6hPsaNKNOFO9FxlB5uKYFGaXdEi2LwL-bfWD">
+    <mat-card-title>{{user}}</mat-card-title>
+    <mat-card-subtitle>New Delhi</mat-card-subtitle>
+    <mat-icon>more_horiz</mat-icon>
+  </mat-card-header>
+  <img mat-card-image [src]="image" alt="Couldn't load. Check your connection">
+  <mat-card-actions>
+    <mat-icon>favorite_border</mat-icon>
+    <mat-icon>chat_bubble_outline</mat-icon>
+    <mat-icon class="save_action">bookmark_border</mat-icon>
+  </mat-card-actions>
+  <mat-card-content>
+    <p>
+      Some Random Caption.
+    </p>
+  </mat-card-content>
+
+</mat-card>
