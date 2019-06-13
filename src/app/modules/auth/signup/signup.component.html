@@ -3,18 +3,28 @@
     <h1 class="mat-title title">Instagram</h1>
     <div class="container">
       <mat-form-field>
-        <input matInput type="username" placeholder="Mobile number or email">
+        <input matInput type="text"
+               [formControl]="controls.mobileOrEmail"
+               placeholder="Mobile number or email">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="name" placeholder="Full Name">
+        <input matInput type="text"
+               [formControl]="controls.fullName"
+               placeholder="Full Name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="username" placeholder="Username">
+        <input matInput type="text"
+               [formControl]="controls.username"
+               placeholder="Username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" placeholder="Password">
+        <input matInput type="password"
+               [formControl]="controls.password"
+               placeholder="Password">
       </mat-form-field>
-      <button mat-flat-button color="primary" (click)="signup()">SIGNUP</button>
+      <button mat-flat-button color="primary"
+              [disabled]="signupFormGroup.touched && !signupFormGroup.valid"
+              (click)="signup()">SIGNUP</button>
     </div>
   </div>
   <div class="login-redirect">

@@ -1,0 +1,16 @@
+// static imports
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import "../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// CSS reset
+@import "reset";
+//Other Imports
+@import "typography/variables";
+
+body {
+  font-family: $font-primary;
+}
+
+a {
+  color: #05d6f1;
+}

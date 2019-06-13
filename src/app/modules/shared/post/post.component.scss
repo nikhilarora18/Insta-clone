@@ -3,15 +3,26 @@
   width: auto;
 
   mat-card-header{
+    mat-card-title{
+      cursor: pointer;
+    }
+    mat-card-subtitle{
+      cursor: pointer;
+    }
+    img{
+      cursor: pointer;
+    }
     mat-icon{
       position: absolute;
       right: 20px;
+      cursor: pointer;
     }
   }
 
   mat-card-actions{
     mat-icon{
       padding-left: 10px;
+      cursor: pointer;
     }
     .save_action{
       position: absolute;

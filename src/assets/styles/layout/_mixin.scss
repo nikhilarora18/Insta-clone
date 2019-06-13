@@ -1,0 +1,144 @@
+/* These mixins are replacement of Flex Layout*/
+
+// Given css will be added only for the specified size classes.
+@mixin ig-only-for-screen-sizes($sizes...) {
+  @if (length($sizes) > 0) {
+    $selectors: ();
+    @each $size in $sizes {
+      $selectors: join(
+        $selectors,
+        unquote(":host-context(.#{$size}) & "),
+        comma
+      );
+    }
+    #{$selectors} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayout
+// eg, fxLayout="row" -> @include ig-fx-layout(row)
+// eg, fxLayout.xs="row" -> @include ig-fx-layout(row, xs)
+@mixin ig-fx-layout($direction, $sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    display: flex;
+    flex-direction: $direction;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayout with fxLayoutGap
+// eg, fxLayout="row" fxLayoutGap="10px" -> @include ig-fx-layout-with-gap(row, 10px)
+// eg, fxLayout.xs="row" fxLayoutGap.xs="10px" -> @include ig-fx-layout-with-gap(row, 10px, xs)
+@mixin ig-fx-layout-with-gap($direction, $value, $sizes...) {
+  @include ig-fx-layout($direction, $sizes...);
+  @include ig-only-for-screen-sizes($sizes...) {
+    @if ($direction == row) {
+      > * {
+        margin-right: $value;
+      }
+      > *:last-child {
+        margin-right: 0;
+      }
+    } @else if ($direction == column) {
+      > * {
+        margin-bottom: $value;
+      }
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    } @else if ($direction == row-reverse) {
+      > * {
+        margin-left: $value;
+      }
+      > *:last-child {
+        margin-left: 0;
+      }
+    } @else if ($direction == reverse-column) {
+      > * {
+        margin-top: $value;
+      }
+      > *:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// For DOM elements
+// Replacement of fxFill
+// eg, fxFill -> @include ig-fx-fill()
+// eg, fxFill.gt-md -> @include ig-fx-fill(lg, xl)
+@mixin ig-fx-fill($sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlex="basis"
+// eg, fxFlex="400px" -> @include ig-fx-flex(400px)
+@mixin ig-fx-flex($basis, $sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    flex-basis: $basis;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlex="grow shrink basis"
+// eg, fxFlex="1 1 auto" -> @include ig-fx-flex--gsb(1, 1, auto)
+@mixin ig-fx-flex--gsb($grow, $shrink, $basis, $sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    flex-basis: $basis;
+    flex-grow: $grow;
+    flex-shrink: $shrink;
+  }
+}
+
+// For DOM containers
+// Replacement of fxLayoutAlign
+// eg, fxLayoutAlignment="start center" -> @include ig-fx-layout-alignment(start, center)
+@mixin ig-fx-layout-alignment(
+  $main-axis-alignment,
+  $cross-axis-alignment,
+  $sizes...
+) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    justify-content: $main-axis-alignment;
+    align-items: $cross-axis-alignment;
+    align-content: $cross-axis-alignment;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlexAlign
+// eg, fxFlexAlign="start" -> @include ig-fx-flex-align(start)
+@mixin ig-fx-flex-align($direction, $sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    align-self: $direction;
+  }
+}
+
+// For DOM elements
+// Replacement of fxFlexOffset
+// eg, fxFlexOffset="10%" -> @include ig-fx-flex-offset(10%)
+// eg, fxFlexOffset.sm-lg="10%" -> @include ig-fx-flex-offset(10%, xs, sm, md)
+@mixin ig-fx-flex-offset($value, $sizes...) {
+  @include ig-only-for-screen-sizes($sizes...) {
+    margin-left: $value;
+  }
+}
+
+// For DOM elements
+// TO assign weights to child elements and divide space in terms of numbers.
+@mixin ig-fx-weight($value, $sizes...) {
+  @include ig-fx-flex--gsb($value, $value, 0, $sizes...);
+}

@@ -1,0 +1,43 @@
+@import "mixin";
+
+// For DOM containers
+// css class for directly applying display:row
+.ig-fx-row {
+  @include ig-fx-layout(row);
+}
+
+// For DOM containers
+// stands for ig-space-between-row.
+.ig-sb-row {
+  @include ig-fx-layout(row);
+  @include ig-fx-layout-alignment(space-between, center);
+}
+
+// For DOM containers
+.ig-gaped-row {
+  @include ig-fx-layout-with-gap(row, 10px);
+}
+
+// For DOM containers
+// css class for directly applying display:column
+.ig-fx-column {
+  @include ig-fx-layout(column);
+}
+
+// For DOM containers with a flex direction set
+// applies flex-grow
+.ig-fx-stretch {
+  @include ig-fx-fill();
+}
+
+// For DOM containers with flex direction row
+// Pushes the contents to the right
+.ig-fx-push-right {
+  @include ig-fx-layout-alignment(flex-end, center);
+}
+
+// For DOM containers with flex direction row
+// Pushes the contents to the center
+.ig-fx-push-center {
+  @include ig-fx-layout-alignment(center, center);
+}

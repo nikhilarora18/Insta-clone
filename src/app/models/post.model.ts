@@ -4,7 +4,6 @@ export interface Post {
   user: User;
   location: string;
   numberOfLikes: number;
-  likes: User[];
   numberOfComments: number;
   comments: {
     user: User,

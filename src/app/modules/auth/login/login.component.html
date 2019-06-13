@@ -3,13 +3,18 @@
   <h1 class="mat-title title">Instagram</h1>
   <div class="container">
     <mat-form-field>
-      <input matInput type="username" placeholder="Phone number, username, or email">
+      <input matInput type="text"
+             [formControl]="controls.username"
+             placeholder="Phone number, username, or email">
     </mat-form-field>
-
     <mat-form-field>
-      <input matInput type="password" placeholder="Password">
+      <input matInput type="password"
+             [formControl]="controls.password"
+             placeholder="Password">
     </mat-form-field>
-    <button mat-flat-button color="primary" (click)="login()">LOGIN</button>
+    <button mat-flat-button color="primary"
+            [disabled]="loginFormGroup.touched && !loginFormGroup.valid"
+            (click)="login()">LOGIN</button>
   </div>
 </div>
   <div class="signup-redirect">
