@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +16,10 @@ export class LoginComponent {
 
   loginFormGroup = new FormGroup(this.controls);
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService) {
+  }
 
   login() {
-    this.router.navigate(['/dashboard']);
+    this.authService.loginUser(this.controls.username.value, this.controls.password.value);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from '../../../models/post.model';
-import {User} from '../../../models/user.model';
+import {Post} from '../../../../models/post.model';
+import {User} from '../../../../models/user.model';
 
 @Component({
   selector: 'app-user-dashboard',

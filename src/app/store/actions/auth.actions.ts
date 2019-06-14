@@ -2,12 +2,13 @@ import {Action} from '@ngrx/store';
 import {User} from '../../models/user.model';
 
 export enum AuthActionTypes {
-  LoadAuths = '[Auth] Load Auths',
+  LoginUser = '[Auth] Login',
   SetAuths = '[Auth] Set Auths'
 }
 
-export class LoadAuths implements Action {
-  readonly type = AuthActionTypes.LoadAuths;
+export class LoginUser implements Action {
+  readonly type = AuthActionTypes.LoginUser;
+  constructor(public payload: User) {}
 }
 
 export class SetAuths implements Action {
@@ -17,4 +18,4 @@ export class SetAuths implements Action {
 }
 
 
-export type AuthActions = LoadAuths | SetAuths;
+export type AuthActions = LoginUser | SetAuths;
