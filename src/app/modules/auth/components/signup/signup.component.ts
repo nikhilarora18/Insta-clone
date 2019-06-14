@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../../../models/user.model';
 import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +21,9 @@ export class SignupComponent {
 
   signupFormGroup = new FormGroup(this.controls);
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router,
+              private snackbar: MatSnackBar) {
   }
 
   signup() {
@@ -34,7 +38,25 @@ export class SignupComponent {
       password: this.controls.password.value,
       email: this.controls.email.value
     };
-    this.authService.registerUser(user);
+    this.authService.registerUser(user).then(
+      () => {
+        this.snackbar.open('You have been registered',
+          'Dismiss',
+          {
+            duration: 2000
+          });
+        this.router.navigate(['/dashboard']);
+      },
+      () => {
+        this.snackbar.open('This username is already in use. Please choose a unique username',
+          'Dismiss',
+          {
+            duration: 2000
+          });
+      }
+    );
   }
-
 }
+
+
+

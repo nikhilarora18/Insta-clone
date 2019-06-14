@@ -21,10 +21,10 @@ export function reducer(state = initialState, action: authActions.AuthActions): 
   switch (action.type) {
     case authActions.AuthActionTypes.SetAuths:
       return handleSetAuths(state, action);
-      break;
     case authActions.AuthActionTypes.LoginUser:
       return handleLogin(state, action);
-      break;
+    case authActions.AuthActionTypes.LogoutUser:
+      return handleLogout(state, action);
     default:
       return state;
   }
@@ -41,5 +41,12 @@ function handleLogin(state: State, action: authActions.LoginUser): State {
   return {
     ...state,
     loggedInUser: action.payload
+  };
+}
+
+function handleLogout(state: State, action: authActions.LogoutUser): State {
+  return {
+    ...state,
+    loggedInUser: null
   };
 }

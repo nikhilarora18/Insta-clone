@@ -1,21 +1,18 @@
+@import '~src/assets/styles/layout/mixin';
+
 .navbar{
   padding: 10px 20%;
-  display: flex;
-  justify-content: space-between;
+  @include ig-fx-layout(row);
+  @include ig-fx-layout-alignment(space-between, center);
   margin-bottom: 30px;
 
-  span{
+  span, mat-icon, button{
     cursor: pointer;
   }
 
   .actions{
-    display: flex;
-    justify-content: space-between;
-    width: 170px;
-
-    mat-icon{
-      cursor: pointer;
-    }
-
+    @include ig-fx-layout(row);
+    @include ig-fx-layout-alignment(space-between, center);
+    width: 25%;
   }
 }
