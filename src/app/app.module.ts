@@ -13,11 +13,13 @@ import {metaReducers, reducers} from './store/reducers';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {AppEffects} from './store/effects/app.effects';
-import { AuthEffects } from './store/effects/auth.effects';
+import {AuthEffects} from './store/effects/auth.effects';
+import {AuthGuard} from './guards/auth.guard';
+import {AnonymousGuard} from './guards/anonymous.guard';
 
 @NgModule({
   declarations: [
-    MainComponent,
+    MainComponent
   ],
   imports: [
     AppRoutingModule,
@@ -30,7 +32,9 @@ import { AuthEffects } from './store/effects/auth.effects';
     EffectsModule.forRoot([AppEffects, AuthEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AnonymousGuard],
   bootstrap: [MainComponent]
 })
 export class AppModule { }
