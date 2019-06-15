@@ -23,7 +23,7 @@
                placeholder="Password">
       </mat-form-field>
       <button mat-flat-button color="primary"
-              [disabled]="signupFormGroup.touched && !signupFormGroup.valid"
+              [disabled]="!signupFormGroup.valid"
               (click)="signup()">SIGNUP</button>
     </div>
   </div>

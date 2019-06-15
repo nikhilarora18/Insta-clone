@@ -13,7 +13,7 @@
              placeholder="Password">
     </mat-form-field>
     <button mat-flat-button color="primary"
-            [disabled]="loginFormGroup.touched && !loginFormGroup.valid"
+            [disabled]="!loginFormGroup.valid"
             (click)="login()">LOGIN</button>
   </div>
 </div>
