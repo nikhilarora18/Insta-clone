@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="navbar">
   <span routerLink="">Instagram</span>
   <div class="actions">
-    <mat-icon>explore</mat-icon>
+    <button mat-icon-button (click)="openCreatePostDialog()"><mat-icon>add</mat-icon></button>
     <mat-icon>favorite_border</mat-icon>
     <mat-icon routerLink="/profile">person_outline</mat-icon>
     <button mat-raised-button (click)="logout()">Logout</button>

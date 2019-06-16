@@ -11,6 +11,6 @@ export interface Post {
   }[];
   commentingOn: boolean;
   isArchived: boolean;
-  image: string;
+  imageUrl: string;
   caption: string;
 }

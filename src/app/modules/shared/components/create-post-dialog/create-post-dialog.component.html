@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Create Your Insta Post</h1>
+<div mat-dialog-content class="container">
+  <div class="form-container">
+  <mat-form-field>
+    <input matInput  placeholder="Image Url" [formControl]="controls.imageUrl">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Caption" [formControl]="controls.caption">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Location" [formControl]="controls.location">
+  </mat-form-field>
+    <p>Let users comment on your post.
+    <mat-slide-toggle color="primary"
+                      [formControl]="controls.commentingOn" ></mat-slide-toggle></p>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-flat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!postCreateFormGroup.valid"
+            (click)="onSave()">Create</button>
+  </div>
+</div>

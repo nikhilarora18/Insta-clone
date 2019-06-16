@@ -1,0 +1,21 @@
+@import '~src/assets/styles/layout/mixin';
+
+.container{
+  overflow: visible;
+
+  .form-container
+  {
+    @include ig-fx-layout-with-gap(column, 20px);
+    @include ig-fx-layout-alignment(space-around, stretch);
+
+    mat-slide-toggle{
+      padding-left: 15px;
+    }
+  }
+  .action{
+    @include ig-fx-layout-alignment(flex-end, center);
+    @include ig-fx-layout-with-gap(row, 15px);
+    height: auto;
+  }
+}
+

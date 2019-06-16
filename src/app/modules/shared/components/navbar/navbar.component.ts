@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
+import {CreatePostDialogComponent} from '../create-post-dialog/create-post-dialog.component';
 
 
 @Component({
@@ -9,10 +11,17 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private dialog: MatDialog) {
   }
 
   logout() {
     this.router.navigate(['/logout']);
+  }
+
+  openCreatePostDialog() {
+    this.dialog.open(CreatePostDialogComponent, {
+      width: '50%'
+    });
   }
 }

@@ -10,7 +10,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatMenuModule,
-  MatProgressSpinnerModule, MatSnackBarModule,
+  MatProgressSpinnerModule, MatSlideToggleModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {CommonModule} from '@angular/common';
@@ -19,6 +19,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../app.routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CreatePostDialogComponent } from './components/create-post-dialog/create-post-dialog.component';
 
 const commonModules = [
   CommonModule,
@@ -43,12 +44,14 @@ const commonModules = [
 
 const components = [
   PostComponent,
-  NavbarComponent
+  NavbarComponent,
+  CreatePostDialogComponent
 ];
 
 @NgModule({
   imports: [
-    ...commonModules
+    ...commonModules,
+    MatSlideToggleModule
   ],
   exports: [
     ...commonModules,
@@ -56,7 +59,8 @@ const components = [
   ],
   declarations: [
     ...components
-  ]
+  ],
+  entryComponents: [CreatePostDialogComponent]
 })
 export class SharedModule {
 }
