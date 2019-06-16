@@ -33,7 +33,6 @@ export class CreatePostDialogComponent {
   }
 
   onSave() {
-    console.log(this.state.getValue().auth.loggedInUser);
     const post: Post = {
       user: this.state.getValue().auth.loggedInUser,
       location: this.controls.location.value,

@@ -4,7 +4,7 @@
          [src]="post.user.profilePic">
     <mat-card-title>{{post.user.username}}</mat-card-title>
     <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
-    <mat-icon>more_horiz</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
   </mat-card-header>
   <img mat-card-image [src]="post.imageUrl" alt="Couldn't load. Check your connection">
   <mat-card-actions>
@@ -21,3 +21,9 @@
     </div>
   </mat-card-content>
 </mat-card>
+
+<mat-menu #menu=matMenu>
+    <button mat-menu-item *ngIf="isPostAuthorLoggedIn">Edit</button>
+    <button mat-menu-item *ngIf="isPostAuthorLoggedIn" (click)="delete()">Remove</button>
+    <button mat-menu-item *ngIf="!isPostAuthorLoggedIn">Report Inappropriate</button>
+</mat-menu>
