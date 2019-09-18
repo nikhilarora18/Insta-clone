@@ -16,6 +16,7 @@ import {AppEffects} from './store/effects/app.effects';
 import {AuthEffects} from './store/effects/auth.effects';
 import {AuthGuard} from './guards/auth.guard';
 import {AnonymousGuard} from './guards/anonymous.guard';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AnonymousGuard} from './guards/anonymous.guard';
     ProfileModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([AppEffects, AuthEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthGuard,
